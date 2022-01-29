@@ -1,6 +1,7 @@
 from pprint import pprint
 from wsgiref.simple_server import make_server
 from Geek_framework.BaseFramework.urls import routes
+from Geek_framework.BaseFramework.base_framework.front_controllers import fronts
 from base_framework.front_controllers import check_token
 
 
@@ -10,8 +11,9 @@ class NotFoundPage:
 
 
 class Application:
-    def __init__(self, routes):
+    def __init__(self, routes, fronts):
         self.routes = routes
+        self.fronts = fronts
 
     def __call__(self, environ, start_response):
 
@@ -27,7 +29,8 @@ class Application:
             controller = NotFoundPage()
         # ---- front controller -----
         request = {}
-        check_token(request, environ)
+        for front_controller in fronts:
+            front_controller(request, environ)
 
         # ----- page controller -----
         code, body = controller(request)
@@ -42,7 +45,7 @@ if __name__ == '__main__':
     host = '127.0.0.1'
     port = 8888
 
-    app = Application(routes)
+    app = Application(routes, fronts)
 
     with make_server(host, port, app) as http:
         print(f'Server started with address {host} on port {port}...')
