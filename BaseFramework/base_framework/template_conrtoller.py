@@ -16,5 +16,6 @@ def render_temp(template_name, name_folder=join(Path(__file__).parents[1], 'temp
 
 
 if __name__ == '__main__':
+
     context = {'title': 'Main Page'}
     render_temp('index.html', context=context)
