@@ -54,7 +54,6 @@ def control_request(environ):
 
         return request_method
     else:
-
-        return f'Сайт поддерживает только GET и POST запросы!!! Был вызван: {request_method}'
+        raise ValueError(f'Сайт поддерживает только GET и POST запросы!!! Был вызван: {request_method}')
 
 # -----------------------------------------

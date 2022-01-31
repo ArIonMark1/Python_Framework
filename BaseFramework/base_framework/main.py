@@ -1,4 +1,4 @@
-from Geek_framework.BaseFramework.base_framework.show_request_data import control_request
+from Geek_framework.BaseFramework.base_framework.processing_request_data import control_request
 
 
 class NotFoundPage:
