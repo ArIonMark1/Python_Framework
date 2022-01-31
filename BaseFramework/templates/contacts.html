@@ -158,15 +158,15 @@
             <p>Телефоны поддержки: {{ context.reg1 }}, {{ context.reg2 }}</p>
             <p>Почта поддержки: {{ context.support }}</p>
         </div>
-        <form method="post" style="display: grid; justify-content: center;">
+        <form name="feedback" method="post" style="display: grid; justify-content: center;">
             <h3 style="text-decoration: underline;">Обратная связь со специалистом</h3>
 
 
-            <input type="text" placeholder="Название темы обращения">
+            <input type="text" name="title" placeholder="Название темы обращения" >
 
-            <input type="text" placeholder="текст сообщения" style="margin-top: 10px; min-height: 100px">
+            <input type="text" name="message" placeholder="текст сообщения"  style="margin-top: 10px; min-height: 100px">
 
-            <input type="email" placeholder="email" style="margin-top: 10px">
+            <input type="email" name="email" placeholder="email" style="margin-top: 10px">
 
             <button type="submit" style="margin-top: 10px">Отправить</button>
         </form>
