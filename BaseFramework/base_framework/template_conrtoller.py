@@ -5,7 +5,7 @@ from pathlib import Path
 from jinja2 import Template
 
 
-def render(template_name, name_folder=join(Path(__file__).parents[1], 'templates'), **kwargs):
+def render_temp(template_name, name_folder=join(Path(__file__).parents[1], 'templates'), **kwargs):
 
     template_path = join(name_folder, template_name)
 
@@ -16,5 +16,6 @@ def render(template_name, name_folder=join(Path(__file__).parents[1], 'templates
 
 
 if __name__ == '__main__':
+
     context = {'title': 'Main Page'}
-    render('index.html', context=context)
+    render_temp('index.html', context=context)
